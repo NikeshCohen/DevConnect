@@ -4,9 +4,12 @@ export default authMiddleware({
   publicRoutes: [
     "/",
     "/events/:id",
+    "/api/webhooks(.*)",
     "/api/webhook/clerk",
     "/api/webhook/stripe",
     "/api/uploadthing",
+    "/sign-in",
+    "/sign-up",
   ],
   ignoredRoutes: [
     "/api/webhook/clerk",
@@ -16,5 +19,5 @@ export default authMiddleware({
 });
 
 export const config = {
-  matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/(api|trpc)(.*)"],
+  matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
 };
