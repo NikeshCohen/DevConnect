@@ -4,6 +4,8 @@ import Link from "next/link";
 import Collection from "@/components/shared/Collection";
 import { SearchParamProps } from "@/types";
 import { getAllEvents } from "@/lib/actions/event.actions";
+import Search from "@/components/shared/Search";
+import CategoryFilter from "@/components/shared/CategoryFilter";
 
 export default async function Home({ searchParams }: SearchParamProps) {
   const page = Number(searchParams?.page) || 1;
@@ -51,13 +53,13 @@ export default async function Home({ searchParams }: SearchParamProps) {
         className="wrapper my-8 flex flex-col gap-8 md:gap-12"
       >
         <h2 className="h2-bold">
-          Trust by <br /> <span className="text-primary">Thousands</span> of
+          Trusted by <br /> <span className="text-primary">Thousands</span> of
           Events
         </h2>
 
         <div className="flex w-full flex-col gap-5 md:flex-row">
-          {/* <Search />
-          <CategoryFilter /> */}
+          <Search />
+          <CategoryFilter />
         </div>
 
         <Collection

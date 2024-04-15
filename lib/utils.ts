@@ -61,7 +61,9 @@ export const formatPrice = (price: string) => {
   const formattedPrice = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
-  }).format(amount);
+  })
+    .format(amount)
+    .replace("$", "R");
 
   return formattedPrice;
 };
