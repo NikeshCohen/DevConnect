@@ -18,12 +18,17 @@ export default function MobileNav() {
           <Image src="/icons/menu.svg" alt="menu icon" height={24} width={24} />
         </SheetTrigger>
         <SheetContent className="flex flex-col gap-6 bg-white md:hidden">
-          <Image
-            src="/images/logo.svg"
-            alt="menu icon"
-            height={30}
-            width={100}
-          />
+          <div className="flex items-center gap-2">
+            <Image
+              src="/images/logo.svg"
+              width={25}
+              height={25}
+              alt="Evently logo"
+            />
+            <span className="font-semibold">
+              Dev<span className="text-primary">Connect</span>
+            </span>
+          </div>
           <Separator />
           <NavItems />
         </SheetContent>

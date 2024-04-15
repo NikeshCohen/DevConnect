@@ -1,5 +1,3 @@
-import React, { startTransition, useEffect, useState } from "react";
-
 import {
   Select,
   SelectContent,
@@ -7,7 +5,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-
+import { ICategory } from "@/lib/database/models/category.model";
+import { startTransition, useEffect, useState } from "react";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -19,8 +18,6 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-
-import { ICategory } from "@/lib/database/models/category.model";
 import { Input } from "../ui/input";
 import {
   createCategory,
@@ -28,11 +25,11 @@ import {
 } from "@/lib/actions/category.actions";
 
 type DropdownProps = {
-  value: string;
+  value?: string;
   onChangeHandler?: () => void;
 };
 
-export default function Dropdown({ value, onChangeHandler }: DropdownProps) {
+const Dropdown = ({ value, onChangeHandler }: DropdownProps) => {
   const [categories, setCategories] = useState<ICategory[]>([]);
   const [newCategory, setNewCategory] = useState("");
 
@@ -63,8 +60,8 @@ export default function Dropdown({ value, onChangeHandler }: DropdownProps) {
         {categories.length > 0 &&
           categories.map((category) => (
             <SelectItem
-              value={category.id}
               key={category._id}
+              value={category._id}
               className="select-item p-regular-14"
             >
               {category.name}
@@ -72,8 +69,8 @@ export default function Dropdown({ value, onChangeHandler }: DropdownProps) {
           ))}
 
         <AlertDialog>
-          <AlertDialogTrigger className="p-medium-14 flex w-full rounded-sm py-3 pl-8 text-primary-500 hover:bg-purple-50 focus:text-primary-500">
-            Add New Category
+          <AlertDialogTrigger className="p-medium-14 flex w-full rounded-sm py-3 pl-8 text-primary-500 hover:bg-primary-50 focus:text-primary-500">
+            Add new category
           </AlertDialogTrigger>
           <AlertDialogContent className="bg-white">
             <AlertDialogHeader>
@@ -81,7 +78,7 @@ export default function Dropdown({ value, onChangeHandler }: DropdownProps) {
               <AlertDialogDescription>
                 <Input
                   type="text"
-                  placeholder="category name..."
+                  placeholder="Category name"
                   className="input-field mt-3"
                   onChange={(e) => setNewCategory(e.target.value)}
                 />
@@ -100,4 +97,6 @@ export default function Dropdown({ value, onChangeHandler }: DropdownProps) {
       </SelectContent>
     </Select>
   );
-}
+};
+
+export default Dropdown;
