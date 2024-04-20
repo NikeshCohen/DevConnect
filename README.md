@@ -6,6 +6,8 @@ DevConnect is a platform designed to help users discover and participate in deve
 
 DevConnect is built using Next.js for server-side functionality, Stripe for payments, and MongoDB for data storage.
 
+Live site: https://devconnect-xi.vercel.app/
+
 #### Key Features
 
 - **Event Discovery:** Find events that match your interests and location.
